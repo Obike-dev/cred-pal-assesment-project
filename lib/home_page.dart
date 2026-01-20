@@ -1,3 +1,5 @@
+import 'package:credpal_assesment_project/featured.dart';
+import 'package:credpal_assesment_project/product_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -5,8 +7,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> features = [
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image1.png"},
+    ];
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final double cardHeight = 174;
+    final double cardWidth = 161;
+    final double verticalSpacing = 20;
+
     return Scaffold(
       body: Column(
         children: [
@@ -105,10 +123,57 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Container(
-            width: double.infinity,
-            height: height * 0.4,
+            height: (cardHeight * 2), // 2 rows + spacing
             decoration: BoxDecoration(
-              color: Color.fromRGBO(208, 218, 255, 1),
+              color: const Color.fromRGBO(241, 243, 254, 1),
+            ),
+            child: GridView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(
+                right: 16,
+                top: 10,
+                bottom: 15,
+                left: 16,
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: verticalSpacing,
+                crossAxisSpacing: 12,
+                mainAxisExtent: cardWidth,
+              ),
+              itemBuilder: (context, index) {
+                return const ProductCard();
+              },
+            ),
+          ),
+          SizedBox(height: 20),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(color: Colors.white),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text("Featured Merchants"),
+                        Spacer(),
+                        Text("View all"),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Featured(
+                      features: features,
+                    ),
+                    SizedBox(height: 20),
+                    Featured(
+                      features: features,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ],
