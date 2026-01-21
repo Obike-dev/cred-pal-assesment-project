@@ -1,16 +1,4 @@
 # credpal_assesment_project
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="510" height="1077" alt="Screenshot 2026-01-21 110425" src="https://github.com/user-attachments/assets/dfdae67e-9082-4a69-ab09-7cb63bc8b6c9" />
