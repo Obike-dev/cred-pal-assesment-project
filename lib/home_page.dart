@@ -7,18 +7,65 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> features = [
+    final List<Map<String, dynamic>> topFeatures = [
       {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
-      {"img": "assets/images/image1.png"},
+      {"img": "assets/images/image2.png"},
+      {"img": "assets/images/image3.png"},
+      {"img": "assets/images/image4.png"},
     ];
+
+    final List<Map<String, dynamic>> bottomFeatures = [
+      {"img": "assets/images/image5.png"},
+      {"img": "assets/images/image10.png"},
+      {"img": "assets/images/image7.png"},
+      {"img": "assets/images/image8.png"},
+    ];
+
+    final List<Map<String, String>> features = [
+      {
+        "img": "assets/images/phone_img_1.png",
+        "imgName": "Nokia G20",
+        "topImg": "assets/images/image3.png",
+        "price": "₦39,7800",
+        "salePrice": "₦88,000",
+      },
+      {
+        "img": "assets/images/phone_img_2.png",
+        "imgName": "iPhone XS",
+        "topImg": "assets/images/image5.png",
+        "price": "₦250,000",
+        "salePrice": "₦220,000",
+      },
+      {
+        "img": "assets/images/phone_img_3.png",
+        "imgName": "Iphone 12",
+        "topImg": "assets/images/image7.png",
+        "price": "₦490,000",
+        "salePrice": "₦38,000",
+      },
+      {
+        "img": "assets/images/anker_sound.png",
+        "imgName": "Anker Sound",
+        "topImg": "assets/images/image2.png",
+        "price": "₦45,000",
+        "salePrice": "₦38,000",
+      },
+      {
+        "img": "assets/images/anker_sound.png",
+        "imgName": "Anker Sound",
+        "topImg": "assets/images/image4.png",
+        "price": "₦45,000",
+        "salePrice": "₦38,000",
+      },
+      {
+        "img": "assets/images/phone_img_2.png",
+        "imgName": "iPhone",
+        "topImg": "assets/images/image9.png",
+        "price": "₦100,000",
+        "salePrice": "₦38,000",
+      },
+    ];
+
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final double cardHeight = 174;
@@ -69,7 +116,7 @@ class HomePage extends StatelessWidget {
                       Column(
                         children: [
                           SizedBox(height: 10),
-                          Text("Shopping limit : @0"),
+                          Text("Shopping limit : ₦0"),
                           TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
@@ -121,32 +168,28 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20),
-          Container(
-            height: (cardHeight * 2), // 2 rows + spacing
-            decoration: BoxDecoration(
-              color: const Color.fromRGBO(241, 243, 254, 1),
-            ),
+          SizedBox(height: 10),
+          SizedBox(
+            height: (cardHeight * 2) + verticalSpacing,
             child: GridView.builder(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(
-                right: 16,
-                top: 10,
-                bottom: 15,
-                left: 16,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 2, // 2 rows
+                mainAxisExtent: cardWidth, // width of each card
                 mainAxisSpacing: verticalSpacing,
                 crossAxisSpacing: 12,
-                mainAxisExtent: cardWidth,
               ),
               itemBuilder: (context, index) {
-                return const ProductCard();
+                return ProductCard(
+                  cardHeight: cardHeight,
+                  feature: features[index],
+                );
               },
+              itemCount: 6, // number of items
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Expanded(
             child: Container(
               width: double.infinity,
@@ -158,19 +201,24 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text("Featured Merchants"),
+                        Text(
+                          "Featured Merchants",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
                         Spacer(),
-                        Text("View all"),
+                        Text(
+                          "View all",
+                          style: TextStyle(color: Colors.blue),
+                        ),
                       ],
                     ),
                     SizedBox(height: 20),
-                    Featured(
-                      features: features,
-                    ),
+                    Featured(features: topFeatures),
                     SizedBox(height: 20),
-                    Featured(
-                      features: features,
-                    ),
+                    Featured(features: bottomFeatures),
                   ],
                 ),
               ),

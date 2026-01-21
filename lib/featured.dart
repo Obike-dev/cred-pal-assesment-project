@@ -17,12 +17,13 @@ class Featured extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                  height: 70,
-                  width: 70,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(features[index]["img"])),
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: Image.asset(features[index]["img"]),
+              ),
             ],
           ),
         ),
