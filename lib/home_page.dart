@@ -175,8 +175,8 @@ class HomePage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // 2 rows
-                mainAxisExtent: cardWidth, // width of each card
+                crossAxisCount: 2,
+                mainAxisExtent: cardWidth,
                 mainAxisSpacing: verticalSpacing,
                 crossAxisSpacing: 12,
               ),
@@ -186,7 +186,7 @@ class HomePage extends StatelessWidget {
                   feature: features[index],
                 );
               },
-              itemCount: 6, // number of items
+              itemCount: 6,
             ),
           ),
           SizedBox(height: 10),
@@ -197,7 +197,6 @@ class HomePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [

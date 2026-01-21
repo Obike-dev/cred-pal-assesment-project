@@ -30,7 +30,6 @@ class ProductCard extends StatelessWidget {
             flex: 3,
             child: Stack(
               children: [
-                // Phone image
                 Positioned.fill(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
@@ -40,8 +39,6 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // Circle at top-left beside phone
                 Positioned(
                   top: 0,
                   left: 0,
@@ -57,8 +54,6 @@ class ProductCard extends StatelessWidget {
               ],
             ),
           ),
-
-          // TEXTS UNDERNEATH
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
